@@ -1,0 +1,29 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: always
+    depends_on:
+      - pdf-service
+    networks:
+      - app-network
+
+  pdf-service:
+    build:
+      context: ./pdf-service
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8002"
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+

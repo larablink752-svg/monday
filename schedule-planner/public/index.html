@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Schedule Planner</h1>
+  </header>
+
+  <div id="app">
+    <main></main>
+    <aside></aside>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div id="modal-overlay">
+    <div id="modal">
+      <h2 id="modal-title">Add Event</h2>
+      <label>Title* <input type="text" id="f-title" /></label>
+      <label>Date* <input type="date" id="f-date" /></label>
+      <label>Start Time <input type="time" id="f-start" /></label>
+      <label>End Time <input type="time" id="f-end" /></label>
+      <label>Category
+        <select id="f-category">
+          <option>Work</option>
+          <option>Personal</option>
+          <option>Health</option>
+          <option>Research</option>
+          <option selected>Other</option>
+        </select>
+      </label>
+      <label>Description <textarea id="f-desc"></textarea></label>
+      <div id="modal-buttons">
+        <button id="btn-save" onclick="saveEvent()">Save</button>
+        <button id="btn-delete" onclick="deleteEvent()" style="display:none">Delete</button>
+        <button onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
